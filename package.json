@@ -1,0 +1,15 @@
+{
+  "name": "betting-backend",
+  "version": "1.0.0",
+  "description": "Casa de apuestas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Deivy J. Sanchez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mysql": "^2.18.1"
+  }
+}
