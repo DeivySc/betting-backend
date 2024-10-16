@@ -103,6 +103,18 @@ app.post('/apuestas', (req, res) => {
   });
 });
 
+app.get('/', (req, res) => {
+  const query = 'SELECT * FROM equipos';
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error al obtener los equipos:', err);
+      res.status(500).send({ message: 'Error al obtener los equipos' });
+    } else {
+      res.send(results);
+    }
+  });
+});
+
 app.listen(3002, () => {
   console.log('Servidor escuchando en el puerto 3002');
 });
