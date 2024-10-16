@@ -1,19 +1,20 @@
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const app = express();
 
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-  });
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'beta',
-  password: 'beta',
-  database: 'apuestas'
-});
+  host: 'junction.proxy.rlwy.net',
+  user: 'root',
+  password: 'unbMfsgCHiFtAABNCOBMogeyZfREyzuu',
+  database: 'railway',
+  port: 23523
+})
 
 db.connect((err) => {
   if (err) {
@@ -78,7 +79,7 @@ app.get('/puntos', (req, res) => {
     inner join equipos e ON p.equipo = e.id 
     order by puntos desc
   `;
-  
+
   db.query(query, (err, results) => {
     if (err) {
       console.error('Error al obtener los partidos:', err);
