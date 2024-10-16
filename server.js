@@ -103,6 +103,6 @@ app.post('/apuestas', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log('Servidor escuchando en el puerto 3000');
+app.listen(3002, () => {
+  console.log('Servidor escuchando en el puerto 3002');
 });
