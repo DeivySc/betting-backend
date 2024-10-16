@@ -47,9 +47,12 @@ app.get('/partidos', (req, res) => {
       p.fecha,
       p.resultado,
       p.img
-    FROM apuestas.partidos p
-    INNER JOIN apuestas.equipos e1 ON p.equipo_local = e1.id
-    INNER JOIN apuestas.equipos e2 ON p.equipo_visitante = e2.id;
+    FROM
+      partidos p
+    INNER JOIN equipos e1 ON
+      p.equipo_local = e1.id
+    INNER JOIN equipos e2 ON
+      p.equipo_visitante = e2.id;
   `;
 
   db.query(query, (err, results) => {
